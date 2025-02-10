@@ -16,3 +16,9 @@ Calls the repository layer for database operations.
 4️⃣ Controller Layer
 Handles HTTP requests.
 Calls the service layer to process data.
+
+🎯 How This Model Works in a Spring Boot JDBC Application?
+1️⃣ Controller Layer receives a request (e.g., fetch an employee).
+2️⃣ Service Layer processes business logic.
+3️⃣ Repository Layer interacts with the database using JdbcTemplate.
+4️⃣ Model Layer (Employee) holds the retrieved data and returns it as a response.
