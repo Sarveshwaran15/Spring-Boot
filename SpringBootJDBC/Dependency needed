@@ -1,0 +1,27 @@
+<dependencies>
+    <!-- Spring Boot Starter Web -->
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+
+    <!-- Spring Boot Starter JDBC -->
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-jdbc</artifactId>
+    </dependency>
+
+    <!-- MySQL Connector -->
+    <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <scope>runtime</scope>
+    </dependency>
+</dependencies>
+
+
+🎯 Summary of Dependencies
+Dependency -	Purpose
+spring-boot-starter-web	: Enables REST API and web application development. Includes Spring MVC and embedded Tomcat.
+spring-boot-starter-jdbc	: Provides JDBC support, JdbcTemplate, and transaction management.
+mysql-connector-java	: Allows the application to connect to a MySQL database.
