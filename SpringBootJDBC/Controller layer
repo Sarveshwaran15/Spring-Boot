@@ -1,0 +1,54 @@
+🚀 Understanding the Controller Layer in Spring Boot JDBC
+The Controller Layer in Spring Boot is responsible for handling HTTP requests and responses. 
+It acts as a bridge between the frontend (client) and the backend (service layer).
+
+🎯 What Does the Controller Layer Do?
+1️⃣ Listens for incoming HTTP requests (GET, POST, DELETE, etc.).
+2️⃣ Calls the Service Layer to process business logic.
+3️⃣ Returns HTTP responses in JSON format.
+4️⃣ Uses Spring Boot annotations to map URLs to methods.
+
+Implementation:
+package com.example.demo.controller;
+
+import com.example.demo.model.Employee;
+import com.example.demo.service.EmployeeService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+import java.util.List;
+
+@RestController   //@RestController → Marks this class as a REST API controller that returns JSON responses.
+@RequestMapping("/employees")   //@RequestMapping("/employees") → Sets the base URL for all endpoints in this controller.
+public class EmployeeController {
+
+    @Autowired
+    private EmployeeService service;
+
+    // Create Employee
+    @PostMapping("/add")
+    public String addEmployee(@RequestBody Employee employee) {
+    //@RequestBody Employee employee → Reads JSON input and converts it into an Employee object.
+        service.addEmployee(employee);
+        return "Employee added successfully!";
+    }
+
+    // Get All Employees
+    @GetMapping("/all")
+    public List<Employee> getAllEmployees() {
+        return service.getAllEmployees();
+    }
+
+    // Get Employee By ID
+    @GetMapping("/{id}")
+    public Employee getEmployeeById(@PathVariable int id) {
+    //@PathVariable int id → Extracts the id from the URL.
+        return service.getEmployeeById(id);
+    }
+
+    // Delete Employee
+    @DeleteMapping("/delete/{id}")
+    public String deleteEmployee(@PathVariable int id) {
+        service.removeEmployee(id);
+        return "Employee deleted successfully!";
+    }
+}
