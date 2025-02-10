@@ -1,0 +1,67 @@
+📌 Understanding the Repository Layer in Spring Boot JDBC
+The Repository Layer in a Spring Boot application is responsible for interacting with the database.
+It acts as a bridge between the Service Layer and the Database, handling all CRUD (Create, Read, Update, Delete) operations.
+
+🔹 What Does the Repository Layer Do?
+Uses JdbcTemplate (Spring's built-in database API) to perform SQL operations.
+Maps SQL query results to Java objects (Employee model).
+Provides data access methods for the service layer.
+
+Implementation:
+
+package com.example.demo.repository;
+
+import com.example.demo.model.Employee;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Repository;
+import java.util.List;
+
+@Repository
+public class EmployeeRepository {
+
+    @Autowired
+    private JdbcTemplate jdbcTemplate; //JdbcTemplate is a helper class that allows executing SQL queries in a simplified way.
+
+    // SQL Queries
+    private final String INSERT_QUERY = "INSERT INTO employees (id, name, salary) VALUES (?, ?, ?)";
+    private final String SELECT_QUERY = "SELECT * FROM employees";
+    private final String FIND_BY_ID_QUERY = "SELECT * FROM employees WHERE id = ?";
+    private final String DELETE_QUERY = "DELETE FROM employees WHERE id = ?";         //? → Parameterized query to prevent SQL injection.
+    
+    // Add Employee
+    public int save(Employee employee) {
+        return jdbcTemplate.update(INSERT_QUERY, employee.getId(), employee.getName(), employee.getSalary());
+    }
+
+    // Get All Employees
+    public List<Employee> findAll() {
+        return jdbcTemplate.query(SELECT_QUERY, employeeRowMapper());
+    //query() executes the SELECT query and maps the result to a List of Employee objects.
+    //Uses RowMapper to convert SQL result into Employee objects.
+    }
+
+    // Find Employee By ID
+    public Employee findById(int id) {
+        return jdbcTemplate.queryForObject(FIND_BY_ID_QUERY, employeeRowMapper(), id);
+    //queryForObject() retrieves a single row and converts it into an Employee object.
+    //Throws EmptyResultDataAccessException if no record is found.
+    }
+
+    // Delete Employee
+    public int deleteById(int id) {
+        return jdbcTemplate.update(DELETE_QUERY, id);
+    }
+
+    // RowMapper
+    //This maps database columns (id, name, salary) to an Employee object.
+    //RowMapper is used by query() and queryForObject() to convert SQL results into Java objects.
+    private RowMapper<Employee> employeeRowMapper() {
+        return (rs, rowNum) -> new Employee(
+            rs.getInt("id"),
+            rs.getString("name"),
+            rs.getDouble("salary")
+        );
+    }
+}
