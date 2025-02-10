@@ -1,0 +1,18 @@
+🔹 Spring Boot JDBC Layered Architecture
+
+1️⃣ Model Layer (Entity)
+Represents the data structure of your table.
+Typically a POJO (Plain Old Java Object).
+Does not require annotations like @Entity (since we are using JDBC, not JPA).
+
+2️⃣ Repository (DAO) Layer
+Handles direct communication with the database.
+Uses JdbcTemplate to perform queries.
+
+3️⃣ Service Layer
+Contains business logic.
+Calls the repository layer for database operations.
+
+4️⃣ Controller Layer
+Handles HTTP requests.
+Calls the service layer to process data.
