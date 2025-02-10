@@ -1,0 +1,40 @@
+Definition:
+The Employee class belongs to the Model Layer in a Spring Boot JDBC application.
+
+What is the Model Layer?
+The Model Layer represents the data structure (objects) used in the application.
+It corresponds to a database table in relational databases.
+This layer contains fields (variables) and getter-setter methods to store and retrieve data.
+
+🔥 Why Do We Need This Model Layer?
+✅ Encapsulation → Hides the fields and only allows controlled access through getter-setter methods.
+✅ Represents Database Table → This class is mapped to an employee table in the database.
+✅ Data Transfer → Used for sending and receiving employee data between layers (Controller ↔ Service ↔ Repository).
+✅ Reusability → Can be reused across different parts of the application, like REST APIs or database operations.
+
+Implementation:
+package com.example.demo.model;
+public class Employee {
+    private int id;
+    private String name;
+    private double salary;
+
+    // Constructor
+    public Employee() {}
+
+    public Employee(int id, String name, double salary) {
+        this.id = id;
+        this.name = name;
+        this.salary = salary;
+    }
+
+    // Getters & Setters
+    public int getId() { return id; }
+    public void setId(int id) { this.id = id; }
+
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
+
+    public double getSalary() { return salary; }
+    public void setSalary(double salary) { this.salary = salary; }
+}
