@@ -1,0 +1,41 @@
+CREATE DATABASE university_db;
+USE university_db;
+
+CREATE TABLE students (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100),
+    department VARCHAR(100),
+    email VARCHAR(100) UNIQUE
+);
+
+CREATE TABLE attendance (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    student_id INT,
+    percentage DECIMAL(5,2),
+    FOREIGN KEY (student_id) REFERENCES students(id) ON DELETE CASCADE
+);
+
+CREATE TABLE marks (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    student_id INT,
+    internal_marks INT,
+    external_marks INT,
+    FOREIGN KEY (student_id) REFERENCES students(id) ON DELETE CASCADE
+);
+
+CREATE TABLE courses (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    student_id INT,
+    course_name VARCHAR(100),
+    teacher_name VARCHAR(100),
+    FOREIGN KEY (student_id) REFERENCES students(id) ON DELETE CASCADE
+);
+
+CREATE TABLE events (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    department VARCHAR(100),
+    event_name VARCHAR(100),
+    entry_fee DECIMAL(10,2),
+    coordinator VARCHAR(100),
+    description TEXT
+);
