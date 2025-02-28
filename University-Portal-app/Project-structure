@@ -1,0 +1,18 @@
+university-portal/
+│── src/main/java/com/university/
+│   ├── UniversityPortalApplication.java  # Main class
+│   ├── controller/
+│   │   ├── StudentController.java        # Handles API requests
+│   ├── service/
+│   │   ├── StudentService.java           # Business logic
+│   ├── repository/
+│   │   ├── StudentRepository.java        # Database queries
+│   ├── model/
+│   │   ├── Student.java                   # Student entity
+│   │   ├── Attendance.java                 # Attendance entity
+│   │   ├── Marks.java                      # Marks entity
+│   │   ├── Course.java                     # Course entity
+│   │   ├── Event.java                      # Event entity
+│── src/main/resources/
+│   ├── application.properties              # Database config
+│── pom.xml                                  # Dependencies
