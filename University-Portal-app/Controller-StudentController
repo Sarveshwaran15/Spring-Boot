@@ -1,0 +1,42 @@
+package com.universtiy.Student_portal_api.controller;
+import com.universtiy.Student_portal_api.model.*;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import com.universtiy.Student_portal_api.service.StudentService;
+
+import java.util.List;
+
+
+@RestController
+@RequestMapping("/students")
+public class StudentController {
+    private final StudentService service;
+
+    public StudentController(StudentService service) {
+        this.service = service;
+    }
+    @GetMapping("/{id}/attendance")
+    public Attendance getAttendance(@PathVariable int id) {
+        return service.getAttendance(id);
+    }
+    @GetMapping("/{id}/marks")
+    public Marks getMarks(@PathVariable int id) {
+        return service.getMarks(id);
+    }
+
+    @GetMapping("/{id}/courses")
+    public List<Course> getCourses(@PathVariable int id) {
+        return service.getCourses(id);
+    }
+
+    @GetMapping("/{department}/events")
+    public List<Event> getEvents(@PathVariable String department) {
+        return service.getEvents(department);
+    }
+
+
+}
+
