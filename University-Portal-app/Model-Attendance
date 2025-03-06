@@ -1,5 +1,5 @@
 package com.universtiy.Student_portal_api.model;
-
+ 
 public class Attendance {
     private int studentId;
     private double percentage;
