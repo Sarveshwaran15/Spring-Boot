@@ -1,5 +1,5 @@
 package com.universtiy.Student_portal_api.model;
-
+ 
 public class Student {
     private int id;
     private String name;
