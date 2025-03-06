@@ -8,7 +8,7 @@ import com.universtiy.Student_portal_api.model.Student;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
-
+ 
 import java.util.List;
 
 @Repository
