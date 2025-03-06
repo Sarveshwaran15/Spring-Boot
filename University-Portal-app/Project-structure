@@ -4,7 +4,7 @@ university-portal/
 │   ├── controller/
 │   │   ├── StudentController.java        # Handles API requests
 │   ├── service/
-│   │   ├── StudentService.java           # Business logic
+│   │   ├── StudentService.java           # Business logic 
 │   ├── repository/
 │   │   ├── StudentRepository.java        # Database queries
 │   ├── model/
