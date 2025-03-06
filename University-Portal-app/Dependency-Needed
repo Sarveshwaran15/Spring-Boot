@@ -3,3 +3,4 @@ Generate a Spring Boot project with the following dependencies:
 Spring Web (For REST APIs)
 Spring JDBC (For database access)
 MySQL Driver (For MySQL database)
+ 
