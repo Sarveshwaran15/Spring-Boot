@@ -1,0 +1,6 @@
+Things can be done by spring boot but not by spring framework.
+  Dependency injection
+  Less configuration
+  Embedded server for testing
+  Bean auto scan
+  Health metrics
