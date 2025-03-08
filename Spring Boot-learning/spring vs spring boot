@@ -1,0 +1,20 @@
+Spring Framework
+  Web Apps
+    Frameworks for fast, secure, and responsive web applications connected to my data store.
+  Reactive
+    Spring's more asynchornous non-blocking architecture means you can get more from your computing resources.
+  Microservices
+    Quickly deliver production-ready with independently evolvable microservices.
+
+Spring Framework
+  It is built on top of the java EE frameworks for building application.
+  It is used for the simplifiction of the java EE implementation.
+  It focus on several areas of the application and provides a wide range of features.
+  It allows the developer to develop loosely coupled applications using dependency injection.
+
+Spring Boot
+  It is used to shorten the length of the code which is written using Spring framework and it also reduce the time.
+  It is easy to create a standalone application without or zero configuration using spring boot.
+  Autoconfiguration is a special feature in spring boot where it automatically configures the class based on that requirement.
+  
+  
