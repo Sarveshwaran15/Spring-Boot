@@ -1,0 +1,5 @@
+Stater POM - it is used to bring all jar files for the application.
+ META-INF/spring.factories
+    Inside the spring.factories they have developed that what should be enable at run time? and what should be disable at run time? dynamically.
+Based on @Conditional and @Configuration.
+
