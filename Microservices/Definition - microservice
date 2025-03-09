@@ -1,0 +1,4 @@
+Microservice is architectural way to design our application uinquely with several small modules developed individually, packaged individually, and deployed individually in individual process.
+
+Advantage
+  There is no tightly coupled modules in the application.
