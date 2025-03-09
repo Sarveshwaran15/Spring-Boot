@@ -1,0 +1,5 @@
+this is the flow of the run() method
+  checks application context
+  check application type
+  register the annotated class bean with the context
+  creates an instance of TomcatEmbeddedServletContainer and adds the context
