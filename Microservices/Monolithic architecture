@@ -1,0 +1,10 @@
+Before using microservice people uses monolithic approach.
+Monolithic approach people used to create every services individually and at final combined as a single .war file and being deployed it to the server.
+
+Disadvantages of Monolithic:
+  Performance issues
+  Continuous deployment is not possible
+  Adopting new technologies will be difficult
+  Overloaded IDE & Overloaded Web container
+  Exception propagation not proper
+  Code readable is not there.
