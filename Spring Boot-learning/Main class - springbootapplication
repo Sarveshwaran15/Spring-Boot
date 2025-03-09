@@ -1,0 +1,7 @@
+@SpringBootApplication = @Configuration + @EnableAutoConfiguration + @ComponentScan
+
+Command prompt to run the .jar
+  >java -jar myapp.war
+
+SpringApplication.run() is used to kick off the Application context where it will look for annotated bean class and initialize it with bean and stored in the space
+called IOC Container. And then it configures the servelet dispatcher.
