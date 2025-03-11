@@ -1,0 +1,50 @@
+package com.student.student_management.service;
+import com.student.student_management.model.*;
+
+import com.student.student_management.repository.StudentRepository;
+import org.springframework.stereotype.Service;
+
+import java.util.*;
+
+
+@Service
+public class StudentServiceImplementation implements StudentService{
+    private final StudentRepository repository;
+
+    public StudentServiceImplementation(StudentRepository repository) {
+        this.repository = repository;
+    }
+    @Override
+    public Student saveStudent(Student student) {
+        return repository.save(student);
+    }
+
+    @Override
+    public Student getStudentById(Long id) {
+        return repository.findById(id).orElse(null);
+    }
+
+    @Override
+    public List<Student> getAllStudents() {
+        return repository.findAll();
+    }
+
+    @Override
+    public Student updateStudent(Long id, Student student) {
+        Optional<Student> existingStudent = repository.findById(id);
+        if (existingStudent.isPresent()) {
+            Student updatedStudent = existingStudent.get();
+            updatedStudent.setName(student.getName());
+            updatedStudent.setEmail(student.getEmail());
+            updatedStudent.setAge(student.getAge());
+            return repository.save(updatedStudent);
+        }
+        return null;
+    }
+
+    @Override
+    public void deleteStudent(Long id) {
+        repository.deleteById(id);
+    }
+
+}
