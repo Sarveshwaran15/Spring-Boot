@@ -1,0 +1,10 @@
+A Student Management System that allows you to:
+
+Add a new student
+Retrieve student details by ID
+Update student information
+Delete a student
+Get all students
+
+
+This project simply uses the CRUD operations in an efficient manner.
