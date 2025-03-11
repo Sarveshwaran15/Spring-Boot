@@ -1,0 +1,4 @@
+We need: 
+✅ Spring Web (for building REST APIs)
+✅ Spring Data JPA (for database interaction)
+✅ MySQL Driver (for connecting with MySQL)
