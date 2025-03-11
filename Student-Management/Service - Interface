@@ -1,12 +1,10 @@
 package com.student.student_management.service;
 
-
 import com.student.student_management.model.Student;
+import java.util.List;
 
-import java.util.*;
-
-public interface StudentService {           //Declaring all the methods as abstract as a separate routing
-    Student getStudent(Student student);
+public interface StudentService {
+    Student saveStudent(Student student);
     Student getStudentById(Long id);
     List<Student> getAllStudents();
     Student updateStudent(Long id, Student student);
