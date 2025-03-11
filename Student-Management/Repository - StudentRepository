@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface StudentRepository extends JpaRepository<Student,Long> {
-        //    Provides the Built-in CRUD methods
-
+public interface StudentRepository extends JpaRepository<Student, Long> {
+    // Custom query (optional for debugging)
+    // @Query("SELECT s FROM Student s") List<Student> getAllStudents();
 }
