@@ -1,42 +1,48 @@
 package com.student.student_management.controller;
-import com.student.student_management.model.*;
+
+import com.student.student_management.model.Student;
 import com.student.student_management.service.StudentService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-
 @RestController
 @RequestMapping("/students")
 public class StudentController {
+
     private final StudentService service;
 
     public StudentController(StudentService service) {
         this.service = service;
     }
+
+    // Create a student
     @PostMapping
     public ResponseEntity<Student> createStudent(@RequestBody Student student) {
         return ResponseEntity.ok(service.saveStudent(student));
     }
 
+    // Get student by ID
     @GetMapping("/{id}")
     public ResponseEntity<Student> getStudentById(@PathVariable Long id) {
-        Student student = service.getStudentById(id);
-        return student != null ? ResponseEntity.ok(student) : ResponseEntity.notFound().build();
+        return ResponseEntity.ok(service.getStudentById(id));
     }
 
+    // Get all students
     @GetMapping
     public ResponseEntity<List<Student>> getAllStudents() {
-        return ResponseEntity.ok(service.getAllStudents());
+        List<Student> students = service.getAllStudents();
+        return students.isEmpty() ? ResponseEntity.noContent().build() : ResponseEntity.ok(students);
     }
 
+    // Update student
     @PutMapping("/{id}")
     public ResponseEntity<Student> updateStudent(@PathVariable Long id, @RequestBody Student student) {
-        Student updatedStudent = service.updateStudent(id, student);
-        return updatedStudent != null ? ResponseEntity.ok(updatedStudent) : ResponseEntity.notFound().build();
+        return ResponseEntity.ok(service.updateStudent(id, student));
     }
 
+    // Delete student
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteStudent(@PathVariable Long id) {
         service.deleteStudent(id);
