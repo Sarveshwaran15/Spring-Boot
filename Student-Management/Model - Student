@@ -2,16 +2,19 @@ package com.student.student_management.model;
 
 import jakarta.persistence.*;
 
-@Entity // can be act as entity class or layer which represents the datastructure of the entire model 
-@Table(name="students") //JPA uses the ORM concept behind so it will automatically create the table based on the name which we are providing
+@Entity
+@Table(name="students")  // Ensure this matches the actual database table name
 public class Student {
 
-    @Id // specifying that it is a primary key
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // specifying that the Id will generate automatically (auto-update)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String email;
     private int age;
+
+    // No-args constructor is required for JPA and JSON serialization
+    public Student() {}
 
     public Student(Long id, String name, String email, int age) {
         this.id = id;
@@ -52,3 +55,4 @@ public class Student {
         this.age = age;
     }
 }
+
